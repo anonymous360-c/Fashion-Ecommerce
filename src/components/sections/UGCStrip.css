@@ -1,0 +1,60 @@
+.ugc {
+  padding: 36px 0 44px;
+  text-align: center;
+}
+
+.ugc__subtitle {
+  font-size: 12.5px;
+  color: var(--color-muted);
+  margin-top: 5px;
+  margin-bottom: 26px;
+}
+
+.ugc__subtitle a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  color: var(--color-text);
+}
+
+.ugc__carousel-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.ugc__track-clip {
+  flex: 1;
+  overflow: hidden;
+}
+
+.ugc__track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.ugc__item {
+  flex: 0 0 25%;
+  padding: 0 2px;
+}
+
+.ugc__item img {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.ugc__item:hover img { transform: scale(1.04); }
+
+.ugc__arrow {
+  width: 38px;
+  font-size: 30px;
+  color: var(--color-text);
+  transition: opacity 0.15s;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.ugc__arrow:disabled { opacity: 0.18; cursor: default; }
+.ugc__arrow:not(:disabled):hover { opacity: 0.55; }

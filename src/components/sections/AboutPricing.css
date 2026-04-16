@@ -1,0 +1,95 @@
+.about-pricing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 340px;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  margin: 0;
+}
+
+/* chart side */
+.about-pricing__chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 48px 48px 40px;
+  background: #fff;
+}
+
+.about-pricing__chart-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.about-pricing__bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 80px;
+}
+
+.about-pricing__bar-price {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text);
+  align-self: flex-start;
+}
+
+.about-pricing__bar {
+  width: 100%;
+  border-radius: 1px;
+}
+
+.about-pricing__bar--everlane {
+  height: 140px;
+  background: #c8b89a;
+}
+
+.about-pricing__bar--retail {
+  height: 200px;
+  background: #d0ccc7;
+}
+
+.about-pricing__bar-label {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--color-muted);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* text side */
+.about-pricing__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 56px 64px 56px 48px;
+  gap: 14px;
+}
+
+.about-pricing__label {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.about-pricing__heading {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--color-text);
+}
+
+.about-pricing__body {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--color-text);
+  opacity: 0.78;
+  max-width: 380px;
+}

@@ -1,0 +1,26 @@
+.banner {
+  padding: 20px 48px;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.banner__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.banner__icon {
+  font-size: 14px;
+  color: var(--color-muted);
+  opacity: 0.5;
+}
+
+.banner__brand {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+}

@@ -1,0 +1,38 @@
+.perks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--color-border);
+  padding: 36px 64px;
+  gap: 0;
+}
+
+.perks__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 7px;
+  padding: 0 20px;
+}
+
+.perks__item + .perks__item {
+  border-left: 1px solid var(--color-border);
+}
+
+.perks__icon {
+  font-size: 22px;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.perks__title {
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.perks__desc {
+  font-size: 11.5px;
+  color: var(--color-muted);
+  line-height: 1.5;
+}

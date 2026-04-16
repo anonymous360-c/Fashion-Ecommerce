@@ -1,0 +1,116 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--color-white);
+}
+
+.mainNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 64px;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.leftLinks {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.navItemWrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navLink {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--color-black);
+  padding: 4px 0;
+  transition: opacity 0.15s ease;
+}
+
+.navLink:hover {
+  opacity: 0.6;
+}
+
+.navLinkActive {
+  opacity: 1;
+}
+
+.activeLine {
+  position: absolute;
+  bottom: -22px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-black);
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--color-black);
+  white-space: nowrap;
+}
+
+.rightIcons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.iconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-black);
+  padding: 4px;
+  transition: opacity 0.15s ease;
+}
+
+.iconBtn:hover {
+  opacity: 0.5;
+}
+
+.subNavWrap {
+  position: relative;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.subNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  height: 44px;
+  padding: 0 40px;
+}
+
+.subLink {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--color-black);
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+
+.subLink:hover {
+  opacity: 0.5;
+}
+
+.subLinkSale {
+  color: var(--color-red);
+}

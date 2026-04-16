@@ -1,0 +1,288 @@
+/* ─────────────────────────────────────────────
+   NAVBAR  —  sticky, never overlaps page scroll
+   ───────────────────────────────────────────── */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: #fff;
+  /* no overflow:hidden here — that's what was clipping the mega menu
+     and causing the scroll-bar jump */
+}
+
+/* promo bar */
+.navbar__promo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 9px 24px;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+
+.navbar__promo a {
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.navbar__currency {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* main row */
+.navbar__main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 58px;
+  position: relative;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.navbar__top-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.navbar__top-link {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-text);
+  position: relative;
+  padding-bottom: 2px;
+  transition: opacity 0.15s;
+}
+
+.navbar__top-link:hover { opacity: 0.5; }
+
+.navbar__top-link--active { font-weight: 400; }
+
+.navbar__top-link-underline {
+  display: block;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-text);
+}
+
+.navbar__logo {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.navbar__icons {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.navbar__icons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  color: var(--color-text);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.navbar__icons button:hover,
+.navbar__icon-btn--active { opacity: 0.5; }
+
+/* sub nav */
+.navbar__sub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;   /* gives mega-menu an anchor */
+}
+
+.navbar__sub-item-wrap {
+  position: static;     /* let mega-menu escape the clip */
+  height: 42px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar__sub-link {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  padding: 0 13px;
+  font-size: 12.5px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: var(--color-text);
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s;
+}
+
+.navbar__sub-link:hover,
+.navbar__sub-link--active { border-bottom-color: var(--color-text); }
+
+.navbar__sub-link--sale { color: #c0392b; }
+
+/* mega menu — positioned relative to .navbar__sub */
+.mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-top: none;
+  padding: 36px 32px 32px;
+  min-width: 760px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.07);
+  animation: megaIn 0.18s ease;
+  z-index: 300;
+}
+
+@keyframes megaIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-6px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.mega-menu__inner {
+  display: grid;
+  grid-template-columns: 180px 200px 1fr 1fr;
+  gap: 0 24px;
+}
+
+.mega-menu__heading {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+.mega-menu__link {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 14px;
+  transition: opacity 0.15s;
+}
+
+.mega-menu__link:hover { opacity: 0.5; }
+
+.mega-menu__images {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.mega-menu__img-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.mega-menu__img-card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.mega-menu__img-card:hover img { transform: scale(1.04); }
+
+.mega-menu__img-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 14px 16px;
+  background: linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 55%);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.25;
+}
+
+.mega-menu__arrow {
+  margin-top: 4px;
+  font-size: 14px;
+  font-family: var(--font-body);
+}
+
+/* about page sub-nav — more items, slightly smaller font */
+.navbar__sub--about {
+  gap: 0;
+  padding: 0 16px;
+  justify-content: flex-start;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.navbar__sub--about::-webkit-scrollbar { display: none; }
+
+/* cart icon with badge */
+.navbar__cart-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  color: var(--color-text);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.navbar__cart-btn:hover { opacity: 0.5; }
+
+.navbar__cart-badge {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  width: 16px;
+  height: 16px;
+  background: var(--color-text);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 600;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
