@@ -1,15 +1,14 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
 
+// ─── Cart ─────────────────────────────────────────────────────
 const cartSlice = createSlice({
   name: 'cart',
-  initialState: {
-    items: [],
-  },
+  initialState: { items: [] },
   reducers: {
     addToCart(state, action) {
       const incoming = action.payload
       const existing = state.items.find(
-        item => item.id === incoming.id && item.size === incoming.size && item.color === incoming.color
+        i => i.id === incoming.id && i.size === incoming.size && i.color === incoming.color
       )
       if (existing) {
         existing.quantity += 1
@@ -47,14 +46,43 @@ const cartSlice = createSlice({
   },
 })
 
-export const { addToCart, increaseQuantity, decreaseQuantity, removeItem, clearCart } = cartSlice.actions
+// ─── Auth ─────────────────────────────────────────────────────
+const authSlice = createSlice({
+  name: 'auth',
+  initialState: {
+    user: null,       // { uid, email, displayName }
+    loading: true,    // true while Firebase checks session on boot
+  },
+  reducers: {
+    setUser(state, action) {
+      state.user    = action.payload
+      state.loading = false
+    },
+    clearUser(state) {
+      state.user    = null
+      state.loading = false
+    },
+    setLoading(state, action) {
+      state.loading = action.payload
+    },
+  },
+})
 
-export const selectCartItems     = state => state.cart.items
-export const selectCartCount     = state => state.cart.items.reduce((sum, i) => sum + i.quantity, 0)
-export const selectCartTotal     = state => state.cart.items.reduce((sum, i) => sum + i.price * i.quantity, 0)
+// ─── Exports ──────────────────────────────────────────────────
+export const { addToCart, increaseQuantity, decreaseQuantity, removeItem, clearCart } = cartSlice.actions
+export const { setUser, clearUser, setLoading } = authSlice.actions
+
+export const selectCartItems  = state => state.cart.items
+export const selectCartCount  = state => state.cart.items.reduce((s, i) => s + i.quantity, 0)
+export const selectCartTotal  = state => state.cart.items.reduce((s, i) => s + i.price * i.quantity, 0)
+export const selectUser       = state => state.auth.user
+export const selectAuthLoading= state => state.auth.loading
 
 const store = configureStore({
-  reducer: { cart: cartSlice.reducer },
+  reducer: {
+    cart: cartSlice.reducer,
+    auth: authSlice.reducer,
+  },
 })
 
 export default store
