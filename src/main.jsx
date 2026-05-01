@@ -8,8 +8,6 @@ import { auth } from './firebase'
 import App from './App'
 import './index.css'
 
-// listen to Firebase auth state once on boot
-// keeps Redux in sync whenever user signs in / out / session restores
 onAuthStateChanged(auth, firebaseUser => {
   if (firebaseUser) {
     store.dispatch(setUser({

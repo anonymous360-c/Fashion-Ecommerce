@@ -32,7 +32,7 @@ export const menNavItems = [
   { label: 'Sale',            href: '#', isSale: true },
 ]
 
-// keep this for backwards compat (used in Navbar for home page)
+
 export const mainNavItems = menNavItems
 
 export const aboutNavItems = [

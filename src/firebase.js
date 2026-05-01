@@ -1,11 +1,7 @@
 import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 
-// ─────────────────────────────────────────────────────────────
-// PASTE YOUR FIREBASE CONFIG HERE
-// Go to: Firebase Console → Your Project → Project Settings
-//        → Your apps → Web app → SDK setup and configuration
-// ─────────────────────────────────────────────────────────────
+
 const firebaseConfig = {
   apiKey:            import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain:        import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
